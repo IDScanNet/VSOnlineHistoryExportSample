@@ -426,11 +426,13 @@ Cookies
 Response to history log
 ## Request Information
 Cookies
+
 ### URI (Body) Parameters
 |Name|Description|Type|Additional information|
 |-----|-------|-----|-----------|
 |historyId||int|required|
-##Response Information
+
+## Response Information
 |Name|Description|Type|Additional information|
 |-----|-------|-----|-----------|
 |HistoryLogId||int||
