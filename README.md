@@ -59,7 +59,7 @@ Cookies
 
 ## Response Formats
 ### Default
-```
+```xml
 <HistoryLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <HistoryItem id="4071544">
 <Scanned>2016-01-12T21:57:23.277</Scanned>
@@ -92,7 +92,7 @@ Cookies
 ```
 
 ### Accept: application/json
-```
+```json
 {
   "HistoryItems": [
     {
@@ -162,7 +162,7 @@ Cookies
 
 ## Response Formats
 ### Default
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <SurveysList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Surveys>
@@ -200,7 +200,7 @@ Cookies
 ```
 
 ### Accept: application/json
-```
+```json
 {
   "Surveys": [
     {
@@ -305,7 +305,7 @@ Cookies
 
 ## Response Formats
 ### Default
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Survey xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SurveyId="1">
   <SurveyName>survey</SurveyName>
@@ -335,7 +335,7 @@ Cookies
 </Survey>
 ```
 ### Accept: application/json
-```
+```json
 {
   "SurveyId": 1,
   "SurveyName": "survey",
@@ -459,7 +459,7 @@ Cookies
 
 ## Response Formats
 ### Default
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <HistoryLogResponses xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" HistoryLogId="4751803" Scanned="2016-04-07T13:58:10.05" FirstName="FRED" MiddleName="GARCIA" LastName="GARCIA">
   <Surveys>
@@ -496,7 +496,7 @@ Cookies
 ```
 
 ### Accept: application/json
-```
+```json
 {
   "HistoryLogId": 4751803,
   "Scanned": "/Date(1460055490050)/",
