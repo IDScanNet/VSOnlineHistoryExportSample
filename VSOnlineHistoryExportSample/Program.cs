@@ -9,29 +9,49 @@ namespace VSOnlineHistoryExportSample
 {
     class Program
     {
+
         static void Main(string[] args)
+        {
+            var requestTester = new RequestTester();
+            requestTester.RunTest();
+        }
+    }
+    public class RequestTester
+    {
+        private const string BaseUrl = "http://localhost:1456/";
+        private HttpClient HttpClient { get; set; }
+
+        private RequestParams Requests { get; set; } = new RequestParams();
+
+        private bool IsJson { get; set; }
+        public RequestTester()
+        {
+            HttpClient = new HttpClient(new HttpClientHandler()
+            {
+                AllowAutoRedirect = false
+            })
+            {
+                BaseAddress = new Uri(BaseUrl)
+            };
+        }
+        public void RunTest()
         {
             Console.Write("Enter your user name: ");
             var userName = Console.ReadLine();
             Console.Write("Enter your password: ");
             var password = GetPassword();
             Console.Write("Json result (y/n)?: ");
-            var isJson = Console.ReadLine() == "y";
-            var httpClient = new HttpClient(new HttpClientHandler()
-            {
-                AllowAutoRedirect = false
-            })
-            {
-                BaseAddress = new Uri(" https://veriscanonline.com/")
-            };
+            IsJson = Console.ReadLine() == "y";
+
             Console.Write("Authorization...");
 
-            var authResponse = httpClient.PostAsync("Authorize",
-                   new FormUrlEncodedContent(new List<KeyValuePair<string, string>>()
-                   {
-                        new KeyValuePair<string, string>("UserName", userName),
-                        new KeyValuePair<string, string>("Password", password)                   
-                   })).Result;
+            var authResponse = HttpClient.PostAsync("Authorize",
+                new FormUrlEncodedContent(new List<KeyValuePair<string, string>>()
+                {
+                    new KeyValuePair<string, string>("UserName", userName),
+                    new KeyValuePair<string, string>("Password", password)
+                })).Result;
+
             if (!authResponse.IsSuccessStatusCode)
             {
                 Console.WriteLine($"Error: {authResponse.StatusCode}:{authResponse.Content.ReadAsStringAsync().Result}");
@@ -39,21 +59,26 @@ namespace VSOnlineHistoryExportSample
                 return;
             }
             Console.WriteLine("Success");
-            var url = UrlHelper.Url("Export/History", new
-            {
-                From = DateTime.UtcNow.AddMonths(-1).ToString("O"),
-                To = DateTime.UtcNow.ToString("O"),
-                Skip = 0,
-                Take = 1000
-            });
-            Console.Write($"Request history to {url} ...");
 
-            if (isJson)
+            foreach (var request in Requests.Requests)
             {
-                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                SendRequest(request);
+                Console.WriteLine("Press any key for perform next request: ");
+                Console.ReadKey();
             }
+            Console.WriteLine("Done, press any key for exit");
+            Console.ReadKey();
+        }
+        private void SendRequest(Params request)
+        {
+            var url = UrlHelper.Url(request.EndPointUrl, request.filters);
+            Console.Write($"Perform request to {request.EndPointUrl} ...");
 
-            var historyResponse = httpClient.GetAsync(url).Result;
+            if (IsJson)
+            {
+                HttpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            }
+            var historyResponse = HttpClient.GetAsync(url).Result;
             var content = historyResponse.Content.ReadAsStringAsync().Result;
             if (!historyResponse.IsSuccessStatusCode)
             {
@@ -62,8 +87,8 @@ namespace VSOnlineHistoryExportSample
                 return;
             }
             Console.WriteLine("Success");
-            var fileExt = isJson ? "json" : "xml";
-            var path = Path.GetFullPath($"result.{fileExt}");
+            var fileExt = IsJson ? "json" : "xml";
+            var path = Path.GetFullPath($"result_{request.EndPointUrl.Replace("/","")}.{fileExt}");
             File.WriteAllText(path, content);
             Console.WriteLine($"Result saved in a file {path}");
             Console.WriteLine("Open file (y/n): ");
@@ -72,10 +97,8 @@ namespace VSOnlineHistoryExportSample
             {
                 Process.Start(path);
             }
-            Console.WriteLine("Press any key for exit");
-            Console.ReadKey();
-        }
 
+        }
         private static string GetPassword()
         {
             string pass = "";
