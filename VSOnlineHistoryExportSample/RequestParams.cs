@@ -21,6 +21,7 @@ namespace VSOnlineHistoryExportSample
                     {
                         new Filter { FieldName = "From", Value = DateTime.UtcNow.AddMonths(-1).ToString("O")},
                         new Filter { FieldName = "To", Value = DateTime.UtcNow.ToString("O")},
+                        new Filter { FieldName = "search", Value = ""},
                         new Filter { FieldName = "Skip", Value = 0},
                         new Filter { FieldName = "Take", Value = 1000}
                     }
@@ -40,6 +41,7 @@ namespace VSOnlineHistoryExportSample
                     {
                         new Filter { FieldName = "Surveyid", Value = new int(), Required = true},
                         new Filter { FieldName = "From", Value = DateTime.UtcNow.AddMonths(-1).ToString("O")},
+                        new Filter { FieldName = "To", Value = DateTime.UtcNow.ToString("O")},
                         new Filter { FieldName = "Skip", Value = 0},
                         new Filter { FieldName = "Take", Value = 1000}
                     }
