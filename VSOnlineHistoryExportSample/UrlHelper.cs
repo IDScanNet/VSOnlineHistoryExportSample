@@ -1,23 +1,23 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace VSOnlineHistoryExportSample
 {
     public class UrlHelper
     {
-        public static string Url(string url, object parametrs)
+        public static string Url(string url, Dictionary<string,string> filters)
         {
-            if (parametrs != null)
+            if (filters != null)
             {
-                var paramDictionary = parametrs.ToDictionary();
-                if (!url.Contains("?"))
-                {
-                    url += "?";
-                }
-                else
-                {
-                    url += "&";
-                }
-                url += string.Join("&", paramDictionary.Select(x => $"{x.Key}={x.Value}"));
+               if (!url.Contains("?"))
+               {
+                   url += "?";
+               }
+               else
+               {
+                   url += "&";
+               }
+               url += string.Join("&", filters.Select(x => $"{x.Key}={x.Value}"));
             }
             return url;
         }

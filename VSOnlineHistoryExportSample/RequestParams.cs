@@ -17,40 +17,39 @@ namespace VSOnlineHistoryExportSample
                 new Params()
                 {
                     EndPointUrl = "Export/History",
-                    filters = new
+                    Filters = new List<Filter>()
                     {
-                        From = DateTime.UtcNow.AddMonths(-1).ToString("O"),
-                        To = DateTime.UtcNow.ToString("O"),
-                        Skip = 0,
-                        Take = 1000
-                    },
+                        new Filter { FieldName = "From", Value = DateTime.UtcNow.AddMonths(-1).ToString("O")},
+                        new Filter { FieldName = "To", Value = DateTime.UtcNow.ToString("O")},
+                        new Filter { FieldName = "Skip", Value = 0},
+                        new Filter { FieldName = "Take", Value = 1000}
+                    }
                 },
                 new Params()
                 {
                     EndPointUrl = "Export/SurveysList",
-                    filters = new
+                    Filters = new List<Filter>()
                     {
-                        Active = true
+                        new Filter { FieldName = "Active", Value = true},
                     }
                 },
                 new Params()
                 {
                     EndPointUrl = "Export/Survey",
-                    filters = new
+                    Filters = new List<Filter>()
                     {
-                        Surveyid = 1,
-                        From = DateTime.UtcNow.AddMonths(-1).ToString("O"),
-                        To = DateTime.UtcNow.ToString("O"),
-                        Skip = 0,
-                        Take = 1000
+                        new Filter { FieldName = "Surveyid", Value = new int(), Required = true},
+                        new Filter { FieldName = "From", Value = DateTime.UtcNow.AddMonths(-1).ToString("O")},
+                        new Filter { FieldName = "Skip", Value = 0},
+                        new Filter { FieldName = "Take", Value = 1000}
                     }
                 },
                 new Params()
                 {
                     EndPointUrl = "Export/HistoryLogResponses",
-                    filters = new
+                    Filters = new List<Filter>()
                     {
-                        HistoryId=33854071
+                        new Filter { FieldName = "Historyid", Value = new int(), Required = true},
                     }
                 }
             };
@@ -60,7 +59,14 @@ namespace VSOnlineHistoryExportSample
     public class Params
     {
         public string EndPointUrl { get; set; }
-        public object filters { get; set; }
+        public List<Filter> Filters { get; set; }
+    }
+
+    public class Filter
+    {
+        public string FieldName { get; set; }
+        public dynamic Value { get; set; }
+        public bool Required { get; set; } = false;
     }
 
 }

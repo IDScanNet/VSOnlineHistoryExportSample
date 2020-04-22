@@ -18,7 +18,7 @@ namespace VSOnlineHistoryExportSample
     }
     public class RequestTester
     {
-        private const string BaseUrl = "http://localhost:1456/";
+        private const string BaseUrl = "https://veriscanonline.com/";//"http://localhost:1456/";
         private HttpClient HttpClient { get; set; }
 
         private RequestParams Requests { get; set; } = new RequestParams();
@@ -71,7 +71,25 @@ namespace VSOnlineHistoryExportSample
         }
         private void SendRequest(Params request)
         {
-            var url = UrlHelper.Url(request.EndPointUrl, request.filters);
+
+            Console.WriteLine($"For request to {request.EndPointUrl} enter next parameters");
+            var filters = new Dictionary<string, string>();
+            foreach (var filter in request.Filters)
+            {
+
+                Console.WriteLine($"Enter parameter: {filter.FieldName}");
+                if (filter.Required) { Console.Write(" [!REQUIRED!]"); }
+                var userData = Console.ReadLine();
+                if (string.IsNullOrEmpty(userData) && filter.Required)
+                {
+                    Console.WriteLine($"Error: required parameter is not filled. Skipping method {request.EndPointUrl} .....");
+                    return;
+                }
+                var value = !string.IsNullOrEmpty(userData) ? userData : filter.Value;
+                filters.Add(filter.FieldName, value.ToString());
+
+            }
+            var url = UrlHelper.Url(request.EndPointUrl, filters);
             Console.Write($"Perform request to {request.EndPointUrl} ...");
 
             if (IsJson)
@@ -88,7 +106,7 @@ namespace VSOnlineHistoryExportSample
             }
             Console.WriteLine("Success");
             var fileExt = IsJson ? "json" : "xml";
-            var path = Path.GetFullPath($"result_{request.EndPointUrl.Replace("/","")}.{fileExt}");
+            var path = Path.GetFullPath($"result_{request.EndPointUrl.Replace("/", "")}.{fileExt}");
             File.WriteAllText(path, content);
             Console.WriteLine($"Result saved in a file {path}");
             Console.WriteLine("Open file (y/n): ");
