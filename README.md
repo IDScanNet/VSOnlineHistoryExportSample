@@ -11,7 +11,7 @@ Cookies
 
 # Request Headers
 ## Required Header
-prevent redirect to login page
+prevent redirect to login page when request was not authorized
 
 |Name|Value|
 |-----|------|
