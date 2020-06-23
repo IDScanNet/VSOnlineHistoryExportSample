@@ -6,13 +6,14 @@
 |UserName||string|Required|
 |Password||string|Required|
 
-To get the current authorization status, instead of redirecting to the authorization page, use in-body parameter or header:
+## Response Information
+Cookies
+
+# Request Headers
+## Required Header
 |Name|Value|
 |-----|------|
 |X-Requested-With|XMLHttpRequest|
-
-## Response Information
-Cookies
 
 # GET (POST) https://veriscanonline.com/Export/History?from={from}&to={to}&search={search}&skip={skip}&take={take}
 History log. Maximum 1000 rows
