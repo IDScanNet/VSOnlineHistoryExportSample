@@ -11,6 +11,8 @@ Cookies
 
 # Request Headers
 ## Required Header
+prevent redirect to login page
+
 |Name|Value|
 |-----|------|
 |X-Requested-With|XMLHttpRequest|
