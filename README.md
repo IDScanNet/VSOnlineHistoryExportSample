@@ -9,6 +9,14 @@
 ## Response Information
 Cookies
 
+# Request Headers
+## Required Header
+prevent redirect to login page when request was not authorized
+
+|Name|Value|
+|-----|------|
+|X-Requested-With|XMLHttpRequest|
+
 # GET (POST) https://veriscanonline.com/Export/History?from={from}&to={to}&search={search}&skip={skip}&take={take}
 History log. Maximum 1000 rows
 ## Request Information
