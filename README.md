@@ -39,16 +39,23 @@ Cookies
 |Name|Description|Type|Additional information|
 |-----|-------|-----|-----------|
 |Id||int||
+|CustomId||string||
 |Scanned||DateTime|
+|ScannedLocal||DateTime|
+|TimeZoneId||string|
 |IDNum||string||
 |FirstName||string||
 |MiddleName||string|
 |LastName||string||
 |ExpDate||int||
+|Address1||string||
+|Address2||string||
 |Address||string||
 |City||string||
 |JurisdictionCode|state|string||
 |PostalCode||string||
+|Country||string||
+|CountryCode||string||
 |Gender||string||
 |DeviceName||string||
 |LocationName||string||
@@ -59,11 +66,104 @@ Cookies
 |Tags||string||
 |Comments||string||
 |CompletedSurveys||string|Collection of CompletedSurvey|
+|CustomFieldValues||string|Collection of CustomFieldValue|
+
+## CustomFieldValue
+|Name|Description|Type|Additional information|
+|-----|-------|-----|-----------|
+|SurveyID||int||
 
 ## CompletedSurvey
 |Name|Description|Type|Additional information|
 |-----|-------|-----|-----------|
-|SurveyID||int||
+|FieldId||int||
+|CategoryId||int?||
+|CategoryName||string||
+|TypeId||int||
+|TypeName||string||
+|FieldName||string||
+|Value||string||
+|OptionIds||Collection of int||
+
+## Response Formats
+### Default
+```xml
+<HistoryLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<HistoryItem id="4071544">
+<Scanned>2016-01-12T21:57:23.277</Scanned>
+<IDNum>9999991</IDNum>
+<FirstName>I</FirstName>
+<MiddleName>AM</MiddleName>
+<LastName>SAMPLE</LastName>
+<BirthDate>1980-01-05T06:00:00</BirthDate>
+<ExpDate>2012-05-12T05:00:00</ExpDate>
+<Address>10 HOPE STREET</Address>
+<City>PAWTUCKET</City>
+<JurisdictionCode>RI</JurisdictionCode>
+<PostalCode>02860</PostalCode>
+<Gender>Female</Gender>
+<DeviceName>Alycia's iPhone</DeviceName>
+<LocationName>Demo</LocationName>
+<Phone/>
+<Email/>
+<GroupComment/>
+<GroupName>Banned</GroupName>
+<Tags/>
+<Comments/>
+<CompletedSurveys>
+<SurveyId>49</SurveyId>
+<SurveyId>51</SurveyId>
+</CompletedSurveys>
+</HistoryItem>
+<HistoryItem id="4047838">
+</HistoryLog>
+```
+
+### Accept: application/json
+```json
+{
+  "HistoryItems": [
+    {
+      "Id": 4071544,
+      "Scanned": "/Date(1452657443277)/",
+      "IDNum": "9999991",
+      "FirstName": "I",
+      "MiddleName": "AM",
+      "LastName": "SAMPLE",
+      "BirthDate": "/Date(315921600000)/",
+      "ExpDate": "/Date(1336816800000)/",
+      "Address": "10 HOPE STREET",
+      "City": "PAWTUCKET",
+      "JurisdictionCode": "RI",
+      "PostalCode": "02860",
+      "Gender": "Female",
+      "DeviceName": "Alycia's iPhone",
+      "LocationName": "Demo",
+      "Phone": "",
+      "Email": "",
+      "GroupComment": "",
+      "GroupName": "Banned",
+      "Tags": "",
+      "Comments": "",
+      "CompletedSurveys": []
+    }
+  ]
+}
+```
+
+# GET (POST) https://veriscanonline.com/Export/Scan?customId={customId}
+History Log Scan.
+## Request Information
+Cookies
+### URI (Body) Parameters
+|Name|Description|Type|Additional information|
+|-----|-------|-----|-----------|
+|customId||string|Required|
+
+## Response Information
+|Name|Description|Type|Additional information|
+|-----|-------|-----|-----------|
+|HistoryItem||HistoryItem||
 
 ## Response Formats
 ### Default
