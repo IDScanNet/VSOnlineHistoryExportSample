@@ -89,49 +89,49 @@ Cookies
 ### Default
 ```xml
 <HistoryLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<HistoryItem id="4071544">
-<Scanned>2016-01-12T21:57:23.277</Scanned>
-<IDNum>9999991</IDNum>
-<FirstName>I</FirstName>
-<MiddleName>AM</MiddleName>
-<LastName>SAMPLE</LastName>
-<BirthDate>1980-01-05T06:00:00</BirthDate>
-<ExpDate>2012-05-12T05:00:00</ExpDate>
-<Address>10 HOPE STREET</Address>
-<City>PAWTUCKET</City>
-<JurisdictionCode>RI</JurisdictionCode>
-<PostalCode>02860</PostalCode>
-<Gender>Female</Gender>
-<DeviceName>Alycia's iPhone</DeviceName>
-<LocationName>Demo</LocationName>
-<Phone/>
-<Email/>
-<GroupComment/>
-<GroupName>Banned</GroupName>
-<Tags/>
-<Comments/>  
-<CountryCode>CA</CountryCode>
-<Address1>111 Main St, Toronto, ON</Address1>
-<ScannedLocal>2020-07-29T14:33:35</ScannedLocal>
-<TimeZoneId>Eastern Standard Time</TimeZoneId>
-<CompletedSurveys>
-<SurveyId>49</SurveyId>
-<SurveyId>51</SurveyId>
-</CompletedSurveys>
-<CustomFieldValues>
-<CustomFieldValue>
-<FieldId>25</FieldId>
-<CategoryId>7</CategoryId>
-<CategoryName>Ordering Clinician</CategoryName>
-<TypeId>1</TypeId>
-<TypeName>String</TypeName>
-<FieldName>Device Name</FieldName>
-<Value>John Smitj</Value>
-<OptionIds />
-</CustomFieldValue>
-</CustomFieldValues>
-</HistoryItem>
-<HistoryItem id="4047838">
+  <HistoryItem id="4071544">
+    <Scanned>2016-01-12T21:57:23.277</Scanned>
+    <IDNum>9999991</IDNum>
+    <FirstName>I</FirstName>
+    <MiddleName>AM</MiddleName>
+    <LastName>SAMPLE</LastName>
+    <BirthDate>1980-01-05T06:00:00</BirthDate>
+    <ExpDate>2012-05-12T05:00:00</ExpDate>
+    <Address>10 HOPE STREET</Address>
+    <City>PAWTUCKET</City>
+    <JurisdictionCode>RI</JurisdictionCode>
+    <PostalCode>02860</PostalCode>
+    <Gender>Female</Gender>
+    <DeviceName>Alycia's iPhone</DeviceName>
+    <LocationName>Demo</LocationName>
+    <Phone/>
+    <Email/>
+    <GroupComment/>
+    <GroupName>Banned</GroupName>
+    <Tags/>
+    <Comments/>  
+    <CountryCode>CA</CountryCode>
+    <Address1>111 Main St, Toronto, ON</Address1>
+    <ScannedLocal>2020-07-29T14:33:35</ScannedLocal>
+    <TimeZoneId>Eastern Standard Time</TimeZoneId>
+    <CompletedSurveys>
+      <SurveyId>49</SurveyId>
+      <SurveyId>51</SurveyId>
+    </CompletedSurveys>
+    <CustomFieldValues>
+      <CustomFieldValue>
+        <FieldId>25</FieldId>
+        <CategoryId>7</CategoryId>
+        <CategoryName>Ordering Clinician</CategoryName>
+        <TypeId>1</TypeId>
+        <TypeName>String</TypeName>
+        <FieldName>Device Name</FieldName>
+        <Value>John Smitj</Value>
+        <OptionIds />
+       </CustomFieldValue>
+      </CustomFieldValues>
+    </HistoryItem>
+  <HistoryItem id="4047838">
 </HistoryLog>
 ```
 
@@ -203,42 +203,42 @@ Cookies
 ### Default
 ```xml
 <HistoryItem xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="4071544">
-<Scanned>2016-01-12T21:57:23.277</Scanned>
-<IDNum>9999991</IDNum>
-<FirstName>I</FirstName>
-<MiddleName>AM</MiddleName>
-<LastName>SAMPLE</LastName>
-<BirthDate>1980-01-05T06:00:00</BirthDate>
-<ExpDate>2012-05-12T05:00:00</ExpDate>
-<Address>10 HOPE STREET</Address>
-<City>PAWTUCKET</City>
-<JurisdictionCode>RI</JurisdictionCode>
-<PostalCode>02860</PostalCode>
-<Gender>Female</Gender>
-<DeviceName>Alycia's iPhone</DeviceName>
-<LocationName>Demo</LocationName>
-<Phone/>
-<Email/>
-<GroupComment/>
-<GroupName>Banned</GroupName>
-<Tags/>
-<Comments/>
- <CustomFieldValues>
-<CustomFieldValue>
-<FieldId>25</FieldId>
-<CategoryId>7</CategoryId>
-<CategoryName>Ordering Clinician</CategoryName>
-<TypeId>1</TypeId>
-<TypeName>String</TypeName>
-<FieldName>Device Name</FieldName>
-<Value>John Smitj</Value>
-<OptionIds />
-</CustomFieldValue>
-</CustomFieldValues>
-<CompletedSurveys>
-<SurveyId>49</SurveyId>
-<SurveyId>51</SurveyId>
-</CompletedSurveys>
+  <Scanned>2016-01-12T21:57:23.277</Scanned>
+  <IDNum>9999991</IDNum>
+  <FirstName>I</FirstName>
+  <MiddleName>AM</MiddleName>
+  <LastName>SAMPLE</LastName>
+  <BirthDate>1980-01-05T06:00:00</BirthDate>
+  <ExpDate>2012-05-12T05:00:00</ExpDate>
+  <Address>10 HOPE STREET</Address>
+  <City>PAWTUCKET</City>
+  <JurisdictionCode>RI</JurisdictionCode>
+  <PostalCode>02860</PostalCode>
+  <Gender>Female</Gender>
+  <DeviceName>Alycia's iPhone</DeviceName>
+  <LocationName>Demo</LocationName>
+  <Phone/>
+  <Email/>
+  <GroupComment/>
+  <GroupName>Banned</GroupName>
+  <Tags/>
+  <Comments/>
+   <CustomFieldValues>
+    <CustomFieldValue>
+      <FieldId>25</FieldId>
+      <CategoryId>7</CategoryId>
+      <CategoryName>Ordering Clinician</CategoryName>
+      <TypeId>1</TypeId>
+      <TypeName>String</TypeName>
+      <FieldName>Device Name</FieldName>
+      <Value>John Smitj</Value>
+      <OptionIds />
+    </CustomFieldValue>
+  </CustomFieldValues>
+  <CompletedSurveys>
+    <SurveyId>49</SurveyId>
+    <SurveyId>51</SurveyId>
+  </CompletedSurveys>
 </HistoryItem>
 ```
 
