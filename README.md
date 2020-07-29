@@ -68,12 +68,12 @@ Cookies
 |CompletedSurveys||string|Collection of CompletedSurvey|
 |CustomFieldValues||string|Collection of CustomFieldValue|
 
-## CustomFieldValue
+## CompletedSurvey
 |Name|Description|Type|Additional information|
 |-----|-------|-----|-----------|
 |SurveyID||int||
 
-## CompletedSurvey
+## CustomFieldValue
 |Name|Description|Type|Additional information|
 |-----|-------|-----|-----------|
 |FieldId||int||
@@ -109,11 +109,27 @@ Cookies
 <GroupComment/>
 <GroupName>Banned</GroupName>
 <Tags/>
-<Comments/>
+<Comments/>  
+<CountryCode>CA</CountryCode>
+<Address1>111 Main St, Toronto, ON</Address1>
+<ScannedLocal>2020-07-29T14:33:35</ScannedLocal>
+<TimeZoneId>Eastern Standard Time</TimeZoneId>
 <CompletedSurveys>
 <SurveyId>49</SurveyId>
 <SurveyId>51</SurveyId>
 </CompletedSurveys>
+<CustomFieldValues>
+<CustomFieldValue>
+<FieldId>25</FieldId>
+<CategoryId>7</CategoryId>
+<CategoryName>Ordering Clinician</CategoryName>
+<TypeId>1</TypeId>
+<TypeName>String</TypeName>
+<FieldName>Device Name</FieldName>
+<Value>John Smitj</Value>
+<OptionIds />
+</CustomFieldValue>
+</CustomFieldValues>
 </HistoryItem>
 <HistoryItem id="4047838">
 </HistoryLog>
@@ -145,7 +161,25 @@ Cookies
       "GroupName": "Banned",
       "Tags": "",
       "Comments": "",
-      "CompletedSurveys": []
+      "Country": null,
+			"CountryCode": "CA",
+			"Address1": "10 HOPE STREET",
+			"Address2": "",
+			"ScannedLocal": "/Date(1596086484000)/",
+			"TimeZoneId": "Central Asia Standard Time",
+			"CustomId": "1234567890",
+      "CompletedSurveys": [],
+      "CustomFieldValues": [
+				{
+					"FieldId": 25,
+					"CategoryId": 7,
+					"CategoryName": "Ordering Clinician",
+					"TypeId": 1,
+					"TypeName": "String",
+					"FieldName": "Device Name",
+					"Value": "John Smitj",
+					"OptionIds": []
+				}
     }
   ]
 }
@@ -168,8 +202,7 @@ Cookies
 ## Response Formats
 ### Default
 ```xml
-<HistoryLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-<HistoryItem id="4071544">
+<HistoryItem xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="4071544">
 <Scanned>2016-01-12T21:57:23.277</Scanned>
 <IDNum>9999991</IDNum>
 <FirstName>I</FirstName>
@@ -190,19 +223,27 @@ Cookies
 <GroupName>Banned</GroupName>
 <Tags/>
 <Comments/>
+ <CustomFieldValues>
+<CustomFieldValue>
+<FieldId>25</FieldId>
+<CategoryId>7</CategoryId>
+<CategoryName>Ordering Clinician</CategoryName>
+<TypeId>1</TypeId>
+<TypeName>String</TypeName>
+<FieldName>Device Name</FieldName>
+<Value>John Smitj</Value>
+<OptionIds />
+</CustomFieldValue>
+</CustomFieldValues>
 <CompletedSurveys>
 <SurveyId>49</SurveyId>
 <SurveyId>51</SurveyId>
 </CompletedSurveys>
 </HistoryItem>
-<HistoryItem id="4047838">
-</HistoryLog>
 ```
 
 ### Accept: application/json
 ```json
-{
-  "HistoryItems": [
     {
       "Id": 4071544,
       "Scanned": "/Date(1452657443277)/",
@@ -227,8 +268,6 @@ Cookies
       "Comments": "",
       "CompletedSurveys": []
     }
-  ]
-}
 ```
 
 # GET (POST) https://veriscanonline.com/Export/SurveysList?active={active}
