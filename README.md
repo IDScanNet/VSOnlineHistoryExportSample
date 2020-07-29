@@ -162,24 +162,24 @@ Cookies
       "Tags": "",
       "Comments": "",
       "Country": null,
-			"CountryCode": "CA",
-			"Address1": "10 HOPE STREET",
-			"Address2": "",
-			"ScannedLocal": "/Date(1596086484000)/",
-			"TimeZoneId": "Central Asia Standard Time",
-			"CustomId": "1234567890",
+      "CountryCode": "CA",
+      "Address1": "10 HOPE STREET",
+      "Address2": "",
+      "ScannedLocal": "/Date(1596086484000)/",
+      "TimeZoneId": "Central Asia Standard Time",
+      "CustomId": "1234567890",
       "CompletedSurveys": [],
       "CustomFieldValues": [
-				{
-					"FieldId": 25,
-					"CategoryId": 7,
-					"CategoryName": "Ordering Clinician",
-					"TypeId": 1,
-					"TypeName": "String",
-					"FieldName": "Device Name",
-					"Value": "John Smitj",
-					"OptionIds": []
-				}
+      {
+            "FieldId": 25,
+            "CategoryId": 7,
+            "CategoryName": "Ordering Clinician",
+            "TypeId": 1,
+            "TypeName": "String",
+            "FieldName": "Device Name",
+            "Value": "John Smitj",
+            "OptionIds": []
+      }
     }
   ]
 }
@@ -266,7 +266,25 @@ Cookies
       "GroupName": "Banned",
       "Tags": "",
       "Comments": "",
-      "CompletedSurveys": []
+      "Country": null,
+      "CountryCode": "CA",
+      "Address1": "10 HOPE STREET",
+      "Address2": "",
+      "ScannedLocal": "/Date(1596086484000)/",
+      "TimeZoneId": "Central Asia Standard Time",
+      "CustomId": "1234567890",
+      "CompletedSurveys": [],
+      "CustomFieldValues": [
+      {
+            "FieldId": 25,
+            "CategoryId": 7,
+            "CategoryName": "Ordering Clinician",
+            "TypeId": 1,
+            "TypeName": "String",
+            "FieldName": "Device Name",
+            "Value": "John Smitj",
+            "OptionIds": []
+      }
     }
 ```
 
